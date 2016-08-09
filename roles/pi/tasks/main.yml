@@ -2,11 +2,20 @@
 - name: 'Configure WIFI'
   copy: src=./wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf mode=0600
 
+- name: 'Add Chromium repository key'
+  shell: wget -qO - http://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
+
+- name: 'Add Chromium repository'
+  shell: echo "deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" | sudo tee -a /etc/apt/sources.list
+
 - name: 'Update APT package cache'
   action: apt update_cache=yes
 
 - name: 'Upgrade APT to the lastest packages'
   action: apt upgrade=safe
+
+- name: 'Install Chromium'
+  apt: name=chromium-browser state=present
 
 - name: 'Reboot'
   command: /sbin/reboot now
