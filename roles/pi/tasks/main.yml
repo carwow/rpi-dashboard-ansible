@@ -17,5 +17,8 @@
 - name: 'Install Chromium'
   apt: name=chromium-browser state=present
 
+- name: 'Disable screen sleep'
+  template: src=templates/lightdm.conf dest=/etc/lightdm/lightdm.conf owner=root group=root mode=6403
+
 - name: 'Reboot'
   command: /sbin/reboot now
