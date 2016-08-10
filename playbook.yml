@@ -2,7 +2,7 @@
 
 - name: Ansible Playbook for configuring brand new Raspberry Pi
 
-  hosts: webservers
+  hosts: dashboards
   roles:
     - pi
   remote_user: pi
