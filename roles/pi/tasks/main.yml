@@ -17,8 +17,14 @@
 - name: 'Install Chromium'
   apt: name=chromium-browser state=present
 
+- name: 'Install unclutter command'
+  apt: name=unclutter state=present
+
 - name: 'Disable screen sleep'
-  template: src=templates/lightdm.conf dest=/etc/lightdm/lightdm.conf owner=root group=root mode=6403
+  template: src=templates/lightdm.conf dest=/etc/lightdm/lightdm.conf owner=root group=root mode=0644
+
+- name: 'Setup LXDE autostart file'
+  template: src=templates/autostart dest=/etc/xdg/lxsession/LXDE/autostart owner=root group=root mode=0644
 
 - name: 'Reboot'
   command: /sbin/reboot now
