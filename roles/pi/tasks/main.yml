@@ -20,6 +20,9 @@
 - name: 'Install unclutter command'
   apt: name=unclutter state=present
 
+- name: 'Configure boot parameters'
+  template: src=templates/config.txt dest=/boot/config.txt owner=root group=root mode=0644
+
 - name: 'Disable screen sleep'
   template: src=templates/lightdm.conf dest=/etc/lightdm/lightdm.conf owner=root group=root mode=0644
 
@@ -27,4 +30,4 @@
   template: src=templates/autostart dest=/home/pi/.config/lxsession/LXDE-pi/autostart owner=pi group=pi mode=0644
 
 - name: 'Reboot'
-  command: /sbin/reboot now
+  command: /sbin/reboot
