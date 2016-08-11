@@ -23,6 +23,17 @@
 - name: 'Configure boot parameters'
   template: src=templates/config.txt dest=/boot/config.txt owner=root group=root mode=0644
 
+- name: 'Ensure autostart directory exists'
+  file:
+    path: "/home/pi/.config/autostart"
+    state: directory
+    recurse: yes
+    owner: pi
+    group: pi
+
+- name: 'Configure VNC'
+  template: src=templates/x11vnc.desktop dest=/home/pi/.config/autostart/x11vnc.desktop owner=pi group=pi mode=0755
+
 - name: 'Disable screen sleep'
   template: src=templates/lightdm.conf dest=/etc/lightdm/lightdm.conf owner=root group=root mode=0644
 
