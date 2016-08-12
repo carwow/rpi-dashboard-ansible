@@ -1,4 +1,4 @@
-Provisioning script used by this guide
+Provisioning script used to set up Raspberry Pi dashboards, see this guide:
 
 https://github.com/carwow/playbook/wiki/Raspberry-PI-Dashboard-How-To
 
