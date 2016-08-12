@@ -5,6 +5,7 @@ https://github.com/carwow/playbook/wiki/Raspberry-PI-Dashboard-How-To
 
 ### TODO:
 
+* Fix reboot error (ansible only?)
 * Split tasks/roles better
 * See if it's possibler to setup the hostname via ansible (with user input) automatically when the RPI is provisioned the first time
 * Setup cron jobs to switch screens off/on based on working days/hours
