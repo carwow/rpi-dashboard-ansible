@@ -20,6 +20,9 @@
 - name: 'Install unclutter command'
   apt: name=unclutter state=present
 
+- name: 'Install x11vnc'
+  apt: name=x11vnc state=present
+
 - name: 'Configure boot parameters'
   template: src=templates/config.txt dest=/boot/config.txt owner=root group=root mode=0644
 
