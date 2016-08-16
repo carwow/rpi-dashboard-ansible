@@ -1,0 +1,19 @@
+- name: 'Configure WIFI'
+  copy: src=./wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf mode=0600
+
+- name: 'Set Hostname'
+  hostname: name={{hostname}}
+  when: hostname is defined
+
+- name: 'Update hosts file with hostname'
+  lineinfile: dest=/etc/hosts line='127.0.0.1 {{hostname}}' owner=root group=root mode=0644
+  when: hostname is defined
+
+- name: 'Update APT package cache'
+  action: apt update_cache=yes
+
+- name: 'Upgrade APT to the lastest packages'
+  action: apt upgrade=safe
+
+- name: 'Configure boot parameters'
+  template: src=templates/config.txt dest=/boot/config.txt owner=root group=root mode=0644

@@ -1,0 +1,9 @@
+---
+- name: 'Add Chromium repository key'
+  apt_key: url=http://bintray.com/user/downloadSubjectPublicKey?username=bintray state=present
+
+- name: 'Add Chromium repository'
+  apt_repository: repo="deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" state=present
+
+- name: 'Install Chromium'
+  apt: name=chromium-browser state=present

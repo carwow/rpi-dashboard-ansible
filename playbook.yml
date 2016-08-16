@@ -4,6 +4,8 @@
 
   hosts: dashboards
   roles:
+    - base
+    - chromium
     - pi
   remote_user: pi
   sudo: yes
