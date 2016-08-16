@@ -6,7 +6,7 @@
   shell: wget -qO - http://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
 
 - name: 'Add Chromium repository'
-  shell: echo "deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" | sudo tee -a /etc/apt/sources.list
+  apt_repository: repo="deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" state=present
 
 - name: 'Update APT package cache'
   action: apt update_cache=yes
