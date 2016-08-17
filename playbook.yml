@@ -6,6 +6,6 @@
   roles:
     - base
     - chromium
-    - pi
+    - x11
   remote_user: pi
   sudo: yes
