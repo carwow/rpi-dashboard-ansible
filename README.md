@@ -1,6 +1,6 @@
 Provisioning script used to set up Raspberry Pi dashboards, see this guide:
 
-https://github.com/carwow/playbook/wiki/Raspberry-PI-Dashboard-How-To
+https://medium.com/carwow-product-engineering/how-to-build-cheap-and-easy-data-dashboards-for-your-startup-400b304af110
 
 
 ### TODO:
